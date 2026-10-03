@@ -32,25 +32,18 @@ public class MinhaListaOrdenavel {
     public int size() {
         return this.listaPessoas.size();
     }
-    public Comparator<PessoaIMC> pesoC = (p1, p2) -> {
-        return Float.compare(p1.getPeso(), p2.getPeso());
-    };
 
-    public Comparator<PessoaIMC> nomeC = (p1, p2) -> {
-        return p1.getNome().compareTo(p2.getNome());
-    };
+    // --- COMPARADORES ---
 
-    public Comparator<PessoaIMC> imcC = (p1, p2) -> {
-        return Float.compare(p1.calculaIMC(), p2.calculaIMC());
-    };
+    public Comparator<PessoaIMC> pesoC = (p1, p2) -> Float.compare(p1.getPeso(), p2.getPeso());
 
-    public Comparator<PessoaIMC> dataNascC = (p1, p2) -> {
-        return p1.getDataNasc().compareTo(p2.getDataNasc());
-    };
+    public Comparator<PessoaIMC> nomeC = (p1, p2) -> p1.getNome().compareTo(p2.getNome());
 
-    public Comparator<PessoaIMC> cpfC = (p1, p2) -> {
-        return p1.getNumCPF().compareTo(p2.getNumCPF());
-    };
+    public Comparator<PessoaIMC> imcC = (p1, p2) -> Float.compare(p1.calculaIMC(), p2.calculaIMC());
+
+    public Comparator<PessoaIMC> dataNascC = (p1, p2) -> p1.getDataNasc().compareTo(p2.getDataNasc());
+
+    public Comparator<PessoaIMC> cpfC = (p1, p2) -> p1.getNumCPF().compareTo(p2.getNumCPF());
 
     public ArrayList<PessoaIMC> ordena(int criterio) {
         switch (criterio) {

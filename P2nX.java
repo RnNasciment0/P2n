@@ -4,24 +4,24 @@ public class P2nX {
     public static void main(String[] args) {
         MinhaListaOrdenavel minhaLista = new MinhaListaOrdenavel();
 
-        minhaLista.add(new Homem("Carlos Eduardo Silva", "12/04/1988", "482.910.384-52", 78.5f, 1.78f));
-        minhaLista.add(new Homem("Lucas Gabriel Santos", "22/09/1995", "193.820.491-73", 68.0f, 1.70f));
-        minhaLista.add(new Homem("Matheus Henrique Oliveira", "05/11/1990", "849.201.385-19", 85.2f, 1.82f));
-        minhaLista.add(new Homem("Rafael Souza Costa", "14/02/1982", "301.492.810-94", 90.4f, 1.75f));
-        minhaLista.add(new Homem("Gabriel Martins Pereira", "30/07/1998", "729.104.832-61", 74.0f, 1.76f));
+        minhaLista.add(new Homem("Carlos", "Silva", 12, 4, 1988, "482.910.384-52", 78.5f, 1.78f));
+        minhaLista.add(new Homem("Lucas", "Santos", 22, 9, 1995, "193.820.491-73", 68.0f, 1.70f));
+        minhaLista.add(new Homem("Matheus", "Oliveira", 5, 11, 1990, "849.201.385-19", 85.2f, 1.82f));
+        minhaLista.add(new Homem("Rafael", "Costa", 14, 2, 1982, "301.492.810-94", 90.4f, 1.75f));
+        minhaLista.add(new Homem("Gabriel", "Pereira", 30, 7, 1998, "729.104.832-61", 74.0f, 1.76f));
 
-        minhaLista.add(new Mulher("Mariana Beatriz Lima", "19/03/1992", "512.390.481-28", 58.0f, 1.65f));
-        minhaLista.add(new Mulher("Ana Carolina Rocha", "08/07/1996", "931.402.815-43", 52.5f, 1.60f));
-        minhaLista.add(new Mulher("Juliana Cristina Ferreira", "25/12/1989", "284.193.502-87", 65.4f, 1.68f));
-        minhaLista.add(new Mulher("Beatriz Fernanda Alves", "03/06/1994", "603.921.485-92", 61.2f, 1.63f));
-        minhaLista.add(new Mulher("Larissa Ribeiro Dias", "11/10/1991", "418.520.391-65", 55.8f, 1.58f));
+        minhaLista.add(new Mulher("Mariana", "Lima", 19, 3, 1992, "512.390.481-28", 58.0f, 1.65f));
+        minhaLista.add(new Mulher("Ana", "Rocha", 8, 7, 1996, "931.402.815-43", 52.5f, 1.60f));
+        minhaLista.add(new Mulher("Juliana", "Ferreira", 25, 12, 1989, "284.193.502-87", 65.4f, 1.68f));
+        minhaLista.add(new Mulher("Beatriz", "Alves", 3, 6, 1994, "603.921.485-92", 61.2f, 1.63f));
+        minhaLista.add(new Mulher("Larissa", "Dias", 11, 10, 1991, "418.520.391-65", 55.8f, 1.58f));
 
         Scanner scanner = new Scanner(System.in);
         int opcao = 0;
 
         do {
             System.out.println("\n==================================================");
-            System.out.println("          SISTEMA DE GESTAO - P2n (COMPLETO)      ");
+            System.out.println("          SISTEMA DE GESTAO - P2n (FINAL)         ");
             System.out.println("==================================================");
             System.out.println(" 1. Listar por Peso Crescente");
             System.out.println(" 2. Listar por Peso Decrescente");
@@ -42,12 +42,12 @@ public class P2nX {
                 if (opcao >= 1 && opcao <= 10) {
                     executarOrdenacao(minhaLista, opcao);
                 } else if (opcao == 11) {
-                    System.out.println("\nEncerrando o programa. Bom trabalho e bons estudos!");
+                    System.out.println("\nEncerrando o programa. Excelente trabalho!");
                 } else {
                     System.out.println("\n[Erro] Opcao invalida! Escolha entre 1 e 11.");
                 }
             } else {
-                System.out.println("\n[Erro] Entrada invalida! Por favor, digite um numero inteiro.");
+                System.out.println("\n[Erro] Entrada invalida! Digite um numero inteiro.");
                 scanner.next();
             }
 
