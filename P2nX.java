@@ -20,52 +20,64 @@ public class P2nX {
         int opcao = 0;
 
         do {
-            System.out.println("\n========================================");
-            System.out.println("       SISTEMA DE GESTAO - P2n          ");
-            System.out.println("========================================");
-            System.out.println("1. Listar por Peso Crescente");
-            System.out.println("2. Listar por Peso Decrescente");
-            System.out.println("3. Sair");
+            System.out.println("\n==================================================");
+            System.out.println("          SISTEMA DE GESTAO - P2n (COMPLETO)      ");
+            System.out.println("==================================================");
+            System.out.println(" 1. Listar por Peso Crescente");
+            System.out.println(" 2. Listar por Peso Decrescente");
+            System.out.println(" 3. Listar por Nome (A-Z)");
+            System.out.println(" 4. Listar por Nome (Z-A)");
+            System.out.println(" 5. Listar por IMC Crescente");
+            System.out.println(" 6. Listar por IMC Decrescente");
+            System.out.println(" 7. Listar por Data de Nascimento (Crescente)");
+            System.out.println(" 8. Listar por Data de Nascimento (Decrescente)");
+            System.out.println(" 9. Listar por CPF (Crescente)");
+            System.out.println("10. Listar por CPF (Decrescente)");
+            System.out.println("11. Sair");
             System.out.print("Escolha uma opcao: ");
 
             if (scanner.hasNextInt()) {
                 opcao = scanner.nextInt();
 
-                switch (opcao) {
-                    case 1:
-                        minhaLista.ordena(MinhaListaOrdenavel.PESO_CRESCENTE);
-                        System.out.println("\n--- LISTA ORDENADA POR PESO CRESCENTE ---");
-
-                        for (int i = 0; i < minhaLista.size(); i++) {
-                            System.out.println(minhaLista.get(i).toString());
-                            System.out.println("----------------------------------------");
-                        }
-                        break;
-
-                    case 2:
-                        minhaLista.ordena(MinhaListaOrdenavel.PESO_DECRESCENTE);
-                        System.out.println("\n--- LISTA ORDENADA POR PESO DECRESCENTE ---");
-
-                        for (int i = 0; i < minhaLista.size(); i++) {
-                            System.out.println(minhaLista.get(i).toString());
-                            System.out.println("----------------------------------------");
-                        }
-                        break;
-
-                    case 3:
-                        System.out.println("\nEncerrando o programa. Até logo!");
-                        break;
-
-                    default:
-                        System.out.println("\n[Erro] Opcao invalida! Escolha entre 1 e 3.");
+                if (opcao >= 1 && opcao <= 10) {
+                    executarOrdenacao(minhaLista, opcao);
+                } else if (opcao == 11) {
+                    System.out.println("\nEncerrando o programa. Bom trabalho e bons estudos!");
+                } else {
+                    System.out.println("\n[Erro] Opcao invalida! Escolha entre 1 e 11.");
                 }
             } else {
                 System.out.println("\n[Erro] Entrada invalida! Por favor, digite um numero inteiro.");
                 scanner.next();
             }
 
-        } while (opcao != 3);
+        } while (opcao != 11);
 
         scanner.close();
+    }
+
+    private static void executarOrdenacao(MinhaListaOrdenavel lista, int opcao) {
+        String titulo = "";
+        int criterio = 0;
+
+        switch (opcao) {
+            case 1: criterio = MinhaListaOrdenavel.PESO_CRESCENTE; titulo = "PESO CRESCENTE"; break;
+            case 2: criterio = MinhaListaOrdenavel.PESO_DECRESCENTE; titulo = "PESO DECRESCENTE"; break;
+            case 3: criterio = MinhaListaOrdenavel.NOME_AZ; titulo = "NOME (A-Z)"; break;
+            case 4: criterio = MinhaListaOrdenavel.NOME_ZA; titulo = "NOME (Z-A)"; break;
+            case 5: criterio = MinhaListaOrdenavel.IMC_CRESCENTE; titulo = "IMC CRESCENTE"; break;
+            case 6: criterio = MinhaListaOrdenavel.IMC_DECRESCENTE; titulo = "IMC DECRESCENTE"; break;
+            case 7: criterio = MinhaListaOrdenavel.DATA_CRESCENTE; titulo = "DATA DE NASCIMENTO CRESCENTE"; break;
+            case 8: criterio = MinhaListaOrdenavel.DATA_DECRESCENTE; titulo = "DATA DE NASCIMENTO DECRESCENTE"; break;
+            case 9: criterio = MinhaListaOrdenavel.CPF_CRESCENTE; titulo = "CPF CRESCENTE"; break;
+            case 10: criterio = MinhaListaOrdenavel.CPF_DECRESCENTE; titulo = "CPF DECRESCENTE"; break;
+        }
+
+        lista.ordena(criterio);
+        System.out.println("\n--- LISTA ORDENADA POR: " + titulo + " ---");
+        for (int i = 0; i < lista.size(); i++) {
+            System.out.println(lista.get(i).toString());
+            System.out.println("--------------------------------------------------");
+        }
     }
 }
