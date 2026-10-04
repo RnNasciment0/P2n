@@ -45,7 +45,7 @@ public class P2nX {
                 if (opcao >= 1 && opcao <= 12) {
                     executarOrdenacao(minhaLista, opcao);
                 } else if (opcao == 13) {
-                    System.out.println("\nEncerrando o programa. Excelente trabalho, Renan!");
+                    System.out.println("\nEncerrando o programa.");
                 } else {
                     System.out.println("\n[Erro] Opcao invalida! Escolha entre 1 e 13.");
                 }
