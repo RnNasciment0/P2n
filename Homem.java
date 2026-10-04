@@ -1,25 +1,31 @@
-
 import java.time.LocalDate;
+import java.time.Period;
 
-public class Homem extends PessoaIMC{
+public class Homem extends PessoaIMC {
 
-    public Homem(String nome, String dataNascimento, String cpf, float peso, float altura){
-        super(nome, dataNascimento, cpf, peso, altura);
+    public Homem(String nome, String sobreNome, int dia, int mes, int ano, String numCPF, float peso, float altura) {
+        super(nome, sobreNome, dia, mes, ano, numCPF, peso, altura);
     }
 
     @Override
-    public String resultIMC(){
+    public String resultIMC() {
         float imc = calculaIMC();
-        if (imc < 20.7){
+        if (imc < 20.7) {
             return "Abaixo do peso ideal";
-        } else if (imc <= 26.4){
+        } else if (imc <= 26.4) {
             return "Peso ideal";
-        } else{
+        } else {
             return "Acima do peso ideal";
         }
     }
-    @override
-    public String toString(){
-        return super.toString() + "Gênero: Masculino\n" + "Resultado IMC: " + this.resultIMC() + "\n";
+
+    @Override
+    public String toString() {
+        int idade = Period.between(this.getDataNasc(), LocalDate.now()).getYears();
+        return super.toString()
+                + "Gênero: Masculino\n"
+                + "Idade: " + idade + " anos\n"
+                + "CPF: " + this.getNumCPF() + "\n"
+                + "IMC: " + String.format("%.1f", this.calculaIMC()) + " (" + this.resultIMC() + ")\n";
     }
 }

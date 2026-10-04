@@ -14,6 +14,8 @@ public class MinhaListaOrdenavel {
     public static final int DATA_DECRESCENTE = 8;
     public static final int CPF_CRESCENTE = 9;
     public static final int CPF_DECRESCENTE = 10;
+    public static final int GENERO_CRESCENTE = 11;
+    public static final int GENERO_DECRESCENTE = 12;
 
     private ArrayList<PessoaIMC> listaPessoas;
 
@@ -33,7 +35,6 @@ public class MinhaListaOrdenavel {
         return this.listaPessoas.size();
     }
 
-    // --- COMPARADORES ---
 
     public Comparator<PessoaIMC> pesoC = (p1, p2) -> Float.compare(p1.getPeso(), p2.getPeso());
 
@@ -44,6 +45,12 @@ public class MinhaListaOrdenavel {
     public Comparator<PessoaIMC> dataNascC = (p1, p2) -> p1.getDataNasc().compareTo(p2.getDataNasc());
 
     public Comparator<PessoaIMC> cpfC = (p1, p2) -> p1.getNumCPF().compareTo(p2.getNumCPF());
+
+    public Comparator<PessoaIMC> generoC = (p1, p2) -> {
+        boolean p1Homem = p1 instanceof Homem;
+        boolean p2Homem = p2 instanceof Homem;
+        return Boolean.compare(p1Homem, p2Homem);
+    };
 
     public ArrayList<PessoaIMC> ordena(int criterio) {
         switch (criterio) {
@@ -76,6 +83,12 @@ public class MinhaListaOrdenavel {
                 break;
             case CPF_DECRESCENTE:
                 Collections.sort(this.listaPessoas, this.cpfC.reversed());
+                break;
+            case GENERO_CRESCENTE:
+                Collections.sort(this.listaPessoas, this.generoC);
+                break;
+            case GENERO_DECRESCENTE:
+                Collections.sort(this.listaPessoas, this.generoC.reversed());
                 break;
             default:
                 break;

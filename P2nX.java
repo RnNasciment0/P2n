@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 
 public class P2nX {
@@ -33,25 +34,27 @@ public class P2nX {
             System.out.println(" 8. Listar por Data de Nascimento (Decrescente)");
             System.out.println(" 9. Listar por CPF (Crescente)");
             System.out.println("10. Listar por CPF (Decrescente)");
-            System.out.println("11. Sair");
+            System.out.println("11. Listar por Género");
+            System.out.println("12. Listar por Género Reverso");
+            System.out.println("13. Sair");
             System.out.print("Escolha uma opcao: ");
 
             if (scanner.hasNextInt()) {
                 opcao = scanner.nextInt();
 
-                if (opcao >= 1 && opcao <= 10) {
+                if (opcao >= 1 && opcao <= 12) {
                     executarOrdenacao(minhaLista, opcao);
-                } else if (opcao == 11) {
-                    System.out.println("\nEncerrando o programa. Excelente trabalho!");
+                } else if (opcao == 13) {
+                    System.out.println("\nEncerrando o programa. Excelente trabalho, Renan!");
                 } else {
-                    System.out.println("\n[Erro] Opcao invalida! Escolha entre 1 e 11.");
+                    System.out.println("\n[Erro] Opcao invalida! Escolha entre 1 e 13.");
                 }
             } else {
                 System.out.println("\n[Erro] Entrada invalida! Digite um numero inteiro.");
                 scanner.next();
             }
 
-        } while (opcao != 11);
+        } while (opcao != 13);
 
         scanner.close();
     }
@@ -71,6 +74,8 @@ public class P2nX {
             case 8: criterio = MinhaListaOrdenavel.DATA_DECRESCENTE; titulo = "DATA DE NASCIMENTO DECRESCENTE"; break;
             case 9: criterio = MinhaListaOrdenavel.CPF_CRESCENTE; titulo = "CPF CRESCENTE"; break;
             case 10: criterio = MinhaListaOrdenavel.CPF_DECRESCENTE; titulo = "CPF DECRESCENTE"; break;
+            case 11: criterio = MinhaListaOrdenavel.GENERO_CRESCENTE; titulo = "GÉNERO"; break;
+            case 12: criterio = MinhaListaOrdenavel.GENERO_DECRESCENTE; titulo = "GÉNERO REVERSO"; break;
         }
 
         lista.ordena(criterio);
